@@ -1,5 +1,3 @@
-# test of printing multiple fonts to the ILI9341 on an M5Stack using H/W SP
-# MIT License; Copyright (c) 2017 Jeffrey N. Magee
 
 from ili934xnew import ILI9341, color565
 from machine import Pin, SPI
@@ -8,11 +6,9 @@ import glcdfont
 import tt14
 import tt24
 import tt32
-import tt36
+import xeron36
 
-fonts = [glcdfont,tt14,tt24,tt32,tt36]
-
-text = 'Now.'
+fonts = [glcdfont,tt14,tt24,tt32,xeron36]
 
 spi = SPI(miso=Pin(12), mosi=Pin(13, Pin.OUT), sck=Pin(14, Pin.OUT))
 
@@ -28,7 +24,8 @@ display.erase()
 display.set_pos(0,0)
 
 display.set_font(fonts[4])
-display.print("Steven Silva")
-display.set_font(fonts[2])
+display.print("Steven")
+display.print("Silva")
+display.set_font(fonts[3])
 display.print(" ")
 display.print("FunPython Member")
